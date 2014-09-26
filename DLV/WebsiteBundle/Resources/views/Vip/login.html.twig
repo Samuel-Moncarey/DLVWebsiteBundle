@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+            {% block content %}
+                
+                <form action="" method="post">
+                    <h2>{{lang.formtitle}}</h2>
+                    <p>
+                        <label for="email">{{lang.emaillabel}}:</label>
+                        <input type="text" id="email" name="email">
+                    </p>
+                    <p>
+                        <label for="pass">{{lang.passlabel}}:</label>
+                        <input type="password" id="pass" name="pass">
+                    </p>
+                    <input type="submit" value="{{lang.submitvalue}}">
+                </form>
+            {% endblock %}

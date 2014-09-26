@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+            {% block content %}
+                
+                <article>
+                    <h2>{{ event.name }}</h2>
+                    <p>{{ event.description }}</p>
+                    <dl>
+                        <dt>{{ lang.date }}:</dt>
+                        <dd>{{ event.date }} {{ lang.time }} {{ event.time }}</dd>
+                        <dt>{{ lang.location }}:</dt>
+                        <dd>{{ event.location.name }}</dd>
+                        <dd>{{ event.location.street }} {{ event.location.number }}</dd>
+                        <dd>{{ event.location.zipcode }} {{ event.location.town|upper }}</dd>
+                        <dt>{{ lang.price }}:</dt>
+                        <dd>&euro; {{ event.price|number_format(2, ',', ' ') }}</dd>
+                        <dt>{{ lang.bands }}:</dt>
+                        <dd>
+                            <dl>
+                            {% for band in event.lineup %}
+
+                                <dt>{{ band.time }} - <strong><a href="#">{{ band.name }}</a></strong></dt>
+                                <dd>{{ band.description }}</dd>
+                            {% endfor %}
+
+                            </dl>
+                        </dd>
+                    </dl>
+                </article>
+            {% endblock %}

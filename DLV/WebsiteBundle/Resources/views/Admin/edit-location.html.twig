@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+            {% block content %}
+                
+                <form action="" method="post">
+                    <h2>Edit Location</h2>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name">
+                    </p>
+                    <p>
+                        <label for="street">Street:</label>
+                        <input type="text" id="street" name="street">
+                    </p>
+                    <p>
+                        <label for="number">Number:</label>
+                        <input type="text" id="number" name="number">
+                    </p>
+                    <p>
+                        <label for="zipcode">Zipcode:</label>
+                        <input type="text" id="zipcode" name="zipcode">
+                    </p>
+                    <p>
+                        <label for="town">Town:</label>
+                        <input type="text" id="town" name="town">
+                    </p>
+                    <p>
+                        <label for="website">Website:</label>
+                        <input type="text" id="website" name="website">
+                    </p>
+                    <input type="submit" value="Save">
+                </form>
+            {% endblock %}

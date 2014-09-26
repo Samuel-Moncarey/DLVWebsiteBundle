@@ -1,0 +1,68 @@
+{% extends "::base.html.twig" %}
+
+            {% block content %}
+                
+                <form action="" method="post">
+                    <h2>Edit Event</h2>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name">
+                    </p>
+                    <div class="multilang-textarea">
+                        <label for="descriptions">Description:</label>
+                        <ul id="description">
+                            <li>
+                                <label for="en_description">EN</label>
+                            </li>
+                            <li>
+                                <label for="nl_description">NL</label>
+                            </li>
+                            <li>
+                                <label for="fr_description">FR</label>
+                            </li>
+                        </ul>
+                        <textarea id="en_description" name="en_description"></textarea>
+                        <textarea id="nl_description" name="nl_description"></textarea>
+                        <textarea id="fr_description" name="fr_description"></textarea>
+                    </div>
+                    <p>
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date" class="datepicker">
+                    </p>
+                    <p>
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time">
+                        <!--<select name="time" id="time">-->
+                        {% for hour in 0..23 %}
+                            
+                            <!--<option value="{{ hour }}">{{ hour }}:00</option>-->
+                        {% endfor %}
+                        <!--</select>-->
+                    </p>
+                    <p>
+                        <label for="location">Location</label>
+                        <select name="time" id="time">
+                            
+                            <option value="null">Choose a location..</option>
+                        {% for hour in 0..5 %}
+                            
+                            <option value="{{ hour }}">{{ hour }}</option>
+                        {% endfor %}
+                        </select>
+                    </p>
+                    <ul>
+                        
+                    {% for band in event.lineup %}
+                        <li>{{ band.name }}</li>
+                    {% endfor %}
+                        
+                        <li>
+                            <label for="band">Band</label>
+                            <select id="band">
+                                <option value="band">band</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <input type="submit" value="Save">
+                </form>
+            {% endblock %}

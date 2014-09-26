@@ -1,0 +1,47 @@
+{% extends "::base.html.twig" %}
+
+    {% block styles %}
+
+        <link rel="stylesheet" type="text/css" href="/bundles/dlvwebsite/css/admin.css">
+    {% endblock %}
+            {% block content %}
+                
+                <article>
+                    <h2>My Events ({{ user.fname }} {{ user.lname }})</h2>
+                    <ul class="admin-links">
+                        <li>
+                            <a href="./admin/new-event">Add Event</a>
+                        </li>
+                        <li>
+                            <a href="./admin/new-location">Add Location</a>
+                        </li>
+                        <li>
+                            <a href="./admin/new-band">Add Band</a>
+                        </li>
+                    </ul>
+                    <div class="two-col">
+                        <h3>Public</h3>
+                        <ul class="event-list">
+                            
+                        {% for event in events.public %}
+                            <li>
+                                <strong>{{ event.name }}</strong>
+                                <span class="right"><a href="{{ event.editlink }}">Edit</a></span>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="two-col">
+                        <h3>Hidden</h3>
+                        <ul class="event-list">
+                            
+                        {% for event in events.hidden %}
+                            <li>
+                                <strong>{{ event.name }}</strong>
+                                <span class="right"><a href="{{ event.editlink }}">Edit</a></span>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </article>
+            {% endblock %}

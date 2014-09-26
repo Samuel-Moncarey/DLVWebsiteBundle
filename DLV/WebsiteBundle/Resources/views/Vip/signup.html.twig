@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+            {% block content %}
+                
+                <form action="{{ '' }}" method="post">
+                    <h2>Signup Form</h2>
+                    <p>
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname">
+                    </p>
+                    <p>
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname">
+                    </p>
+                    <p>
+                        <label for="email">E-mail:</label>
+                        <input type="text" id="email" name="email">
+                    </p>
+                    <p>
+                        <label for="pass">Password: <span>(min. 6 chars)</span></label>
+                        <input type="password" id="pass" name="pass">
+                    </p>
+                    <input type="submit" value="signup">
+                </form>
+            {% endblock %}

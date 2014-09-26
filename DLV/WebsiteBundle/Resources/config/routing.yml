@@ -1,0 +1,141 @@
+dlv_website_frontpage:
+    path:       /
+    defaults:   { _controller: DLVWebsiteBundle:Default:redirect }
+    
+dlv_website_nolang:
+    path:       /{page}/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Default:redirect, subpage: none}
+    requirements:
+        page: home|events|bookings|media|links|vip
+        subpage: .+
+    
+dlv_website_homepage:
+    path:       /{lang}
+    defaults:   { _controller: DLVWebsiteBundle:Home:index }
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_homesubpage:
+    path:       /{lang}/home/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Home:index, subpage: home }
+    requirements:
+        lang: en|nl|fr
+        subpage: news|concept|behind\-the\-scenes
+    
+dlv_website_events:
+    path:       /{lang}/events
+    defaults:   { _controller: DLVWebsiteBundle:Events:index }
+    requirements:
+        lang: en|nl|fr
+        
+dlv_website_edit_event:
+    path:       /{lang}/events/admin/{action}/{id}
+    defaults:   { _controller: DLVWebsiteBundle:Events:edit}
+    requirements:
+        lang: en|nl|fr
+        action: ^edit\-([a-z])+$
+        
+dlv_website_new_event:
+    path:       /{lang}/events/admin/{action}
+    defaults:   { _controller: DLVWebsiteBundle:Events:new}
+    requirements:
+        lang: en|nl|fr
+        action: ^new\-([a-z])+$
+    
+dlv_website_events_admin:
+    path:       /{lang}/events/admin/{action}
+    defaults:   { _controller: DLVWebsiteBundle:Events:admin, action: summary }
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_subevents:
+    path:       /{lang}/events/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Events:index }
+    requirements:
+        lang: en|nl|fr
+        subpage: upcoming\-events|previous\-events|admin
+    
+dlv_website_event:
+    path:       /{lang}/events/{event}
+    defaults:   { _controller: DLVWebsiteBundle:Events:event}
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_bookings:
+    path:       /{lang}/bookings
+    defaults:   { _controller: DLVWebsiteBundle:Bookings:index }
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_subbookings:
+    path:       /{lang}/bookings/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Bookings:index }
+    requirements:
+        lang: en|nl|fr
+        subpage: host\-an\-event|get\-on\-stage
+    
+dlv_website_media:
+    path:       /{lang}/media
+    defaults:   { _controller: DLVWebsiteBundle:Media:index }
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_submedia:
+    path:       /{lang}/media/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Media:index }
+    requirements:
+        lang: en|nl|fr
+        subpage: pictures|videos
+    
+dlv_website_links:
+    path:       /{lang}/links
+    defaults:   { _controller: DLVWebsiteBundle:Links:index }
+    requirements:
+        lang: en|nl|fr
+        
+dlv_website_edit_link:
+    path:       /{lang}/links/admin/{action}/{id}
+    defaults:   { _controller: DLVWebsiteBundle:Links:edit}
+    requirements:
+        lang: en|nl|fr
+        action: ^edit\-([a-z])+$
+        
+dlv_website_new_link:
+    path:       /{lang}/links/admin/{action}
+    defaults:   { _controller: DLVWebsiteBundle:Links:new}
+    requirements:
+        lang: en|nl|fr
+        action: ^new\-([a-z])+$
+    
+dlv_website_links_admin:
+    path:       /{lang}/links/admin/{action}
+    defaults:   { _controller: DLVWebsiteBundle:Links:admin, action: summary }
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_sublinks:
+    path:       /{lang}/links/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Links:index }
+    requirements:
+        lang: en|nl|fr
+        subpage: bands|locations|admin
+    
+dlv_website_vip:
+    path:       /{lang}/vip
+    defaults:   { _controller: DLVWebsiteBundle:Vip:index }
+    requirements:
+        lang: en|nl|fr
+    
+dlv_website_subvip:
+    path:       /{lang}/vip/{subpage}
+    defaults:   { _controller: DLVWebsiteBundle:Vip:index }
+    requirements:
+        lang: en|nl|fr
+        subpage: login|signup|logout|profile|settings|admin
+    
+dlv_website_comfirmsignup:
+    path:       /{lang}/vip/comfirm/{key}
+    defaults:   { _controller: DLVWebsiteBundle:Vip:confirmAccount }
+    requirements:
+        lang: en|nl|fr
+        
